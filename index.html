@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clean Street Atlas</title>
+  <meta name="description" content="Find a responsible next step for sanitation issues in shared public spaces.">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" type="module"></script>
+</head>
+<body>
+  <header class="masthead"><a href="./" class="wordmark"><span aria-hidden="true">✳</span> Clean Street Atlas</a><a href="#privacy">Privacy &amp; tool limits</a></header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="kicker">An interactive sanitation field guide</p>
+        <h1>A cleaner block<br>starts here.</h1>
+        <p class="intro">Spot litter, an overflowing bin or something hazardous? Get a practical next step for your neighborhood.</p>
+        <a class="hero-link" href="#triage">Find a cleanup route <span aria-hidden="true">↘</span></a>
+      </div>
+      <figure class="map">
+        <div id="viewport" aria-label="Interactive neighborhood model">
+          <div id="district"></div>
+        </div>
+        <figcaption>
+          <span>Drag to explore the district</span>
+          <div class="camera" aria-label="Map rotation">
+            <button type="button" id="left" aria-label="Rotate left">↶</button>
+            <button type="button" id="reset">Reset view</button>
+            <button type="button" id="right" aria-label="Rotate right">↷</button>
+          </div>
+        </figcaption>
+        <div class="map-key" aria-label="Sanitation hotspots">
+          <button type="button" data-stop="0"><b>01</b> Park litter</button>
+          <button type="button" data-stop="1"><b>02</b> Full bin</button>
+          <button type="button" data-stop="2"><b>03</b> Bulky waste</button>
+          <button type="button" data-stop="3"><b>04</b> Hazard</button>
+        </div>
+      </figure>
+    </section>
+    <section class="station" id="triage" aria-labelledby="triage-heading">
+      <form id="report">
+        <h2 id="triage-heading">What did you spot?</h2>
+        <label for="description">Describe the issue in a few words</label>
+        <textarea id="description" maxlength="400" required rows="3" placeholder="Plastic bottles and wrappers beside a park bench"></textarea>
+        <div class="examples" aria-label="Example observations">
+          <button type="button" data-example="Plastic bottles and wrappers near a park bench">Litter</button>
+          <button type="button" data-example="An overflowing public trash bin">Overflowing bin</button>
+          <button type="button" data-example="A mattress dumped beside the curb">Bulky waste</button>
+          <button type="button" data-example="A used syringe beside a public walkway">Hazardous waste</button>
+        </div>
+        <p class="model">Public demo · Local classification</p>
+        <button class="primary" type="submit">Get my cleanup route <span aria-hidden="true">→</span></button>
+      </form>
+      <article class="result" aria-live="polite" aria-atomic="true">
+        <p class="kicker">Your cleanup route</p>
+        <div id="result"><h2>Ready when you are.</h2><p>Your observation will open a reviewed playbook with the next steps.</p></div>
+      </article>
+    </section>
+    <section id="privacy" class="privacy">
+      <h2>Privacy &amp; tool limits</h2>
+      <p>This public demo processes your observation in your browser. It uses local rules and built-in playbooks. You decide whether to contact your local sanitation service.</p>
+    </section>
+  </main>
+  <footer>Clean Street Atlas · Neighborhood sanitation field guide</footer>
+</body>
+</html>
